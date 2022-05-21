@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/skin_color.css') }}">
 
+
+    {{-- Toastr --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
 </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
@@ -42,8 +46,8 @@
                         <a href="index.html">
                             <!-- logo for regular state and mobile devices -->
                             <div class="d-flex align-items-center justify-content-center">
-                                <img src="{{ asset('admin/images/logo-dark.png') }}" alt="">
-                                <h3><b>Sunny</b> Admin</h3>
+                                <img width="40PX" height="30PX" src="{{ asset('upload/MASS.png') }}" alt="">
+                                <h3><b>MAAS</b> </h3>
                             </div>
                         </a>
                     </div>
@@ -62,13 +66,13 @@
                     <li class="treeview">
                         <a href="#">
                             <i data-feather="message-circle"></i>
-                            <span>Application</span>
+                            <span>Brand</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-right pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="chat.html"><i class="ti-more"></i>Chat</a></li>
+                            <li><a href="{{ route('all.brands') }}"><i class="ti-more"></i>View Brands</a></li>
                             <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>
                         </ul>
                     </li>
@@ -188,12 +192,75 @@
     <script src="{{ asset('admin/assets/icons/feather-icons/feather.min.js') }}"></script>
     {{-- <script src="{{ asset('admin/assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script> --}}
     <script src="{{ asset('admin/assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
+    {{-- <script src="{{ asset('admin/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script> --}}
+    <script src="{{ asset('admin/assets/vendor_components/datatable/datatables.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/pages/data-table.js') }}"></script>
+    <script src="../assets/vendor_components/datatable/datatables.min.js"></script>
+    <script src="js/pages/data-table.js"></script>
+
 
     <!-- Sunny Admin App -->
     <script src="{{ asset('admin/assets/js/template.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/pages/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('admin/assets/js/pages/dashboard.js') }}"></script> --}}
 
+
+    {{-- Toastr --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}";
+            switch (type) {
+                case 'success':
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
+                case 'info':
+                    toastr.info("{{ Session::get('message') }}");
+                    break;
+                case 'warning':
+                    toastr.warning("{{ Session::get('message') }}");
+                    break;
+                case 'error':
+                    toastr.error("{{ Session::get('message') }}");
+                    break;
+            }
+        @endif
+    </script>
+
+
+
+    {{-- Sweet Alert Settings --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('Click', '#delete', function(e) {
+                e.preventDefault();
+
+                var link = $(this).attr("href");
+
+                swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        swal(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+
+                })
+            })
+        })
+    </script>
 
 </body>
 

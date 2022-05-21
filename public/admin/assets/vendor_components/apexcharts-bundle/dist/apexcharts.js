@@ -28902,51 +28902,51 @@
         // main method
         return new Promise(function (resolve, reject) {
           // only draw chart, if element found
-          if (_this.el !== null) {
-            if (typeof Apex._chartInstances === 'undefined') {
-              Apex._chartInstances = [];
-            }
+          // if (_this.el !== null) {
+          //   if (typeof Apex._chartInstances === 'undefined') {
+          //     Apex._chartInstances = [];
+          //   }
 
-            if (_this.w.config.chart.id) {
-              Apex._chartInstances.push({
-                id: _this.w.globals.chartID,
-                group: _this.w.config.chart.group,
-                chart: _this
-              });
-            } // set the locale here
+          //   if (_this.w.config.chart.id) {
+          //     Apex._chartInstances.push({
+          //       id: _this.w.globals.chartID,
+          //       group: _this.w.config.chart.group,
+          //       chart: _this
+          //     });
+          //   } // set the locale here
 
 
-            _this.setLocale(_this.w.config.chart.defaultLocale);
+          //   _this.setLocale(_this.w.config.chart.defaultLocale);
 
-            var beforeMount = _this.w.config.chart.events.beforeMount;
+          //   var beforeMount = _this.w.config.chart.events.beforeMount;
 
-            if (typeof beforeMount === 'function') {
-              beforeMount(_this, _this.w);
-            }
+          //   if (typeof beforeMount === 'function') {
+          //     beforeMount(_this, _this.w);
+          //   }
 
-            _this.events.fireEvent('beforeMount', [_this, _this.w]);
+          //   _this.events.fireEvent('beforeMount', [_this, _this.w]);
 
-            window.addEventListener('resize', _this.windowResizeHandler);
-            window.addResizeListener(_this.el.parentNode, _this._parentResizeCallback.bind(_this));
+          //   window.addEventListener('resize', _this.windowResizeHandler);
+          //   window.addResizeListener(_this.el.parentNode, _this._parentResizeCallback.bind(_this));
 
-            var graphData = _this.create(_this.w.config.series, {});
+          //   var graphData = _this.create(_this.w.config.series, {});
 
-            if (!graphData) return resolve(_this);
+          //   if (!graphData) return resolve(_this);
 
-            _this.mount(graphData).then(function () {
-              if (typeof _this.w.config.chart.events.mounted === 'function') {
-                _this.w.config.chart.events.mounted(_this, _this.w);
-              }
+          //   _this.mount(graphData).then(function () {
+          //     if (typeof _this.w.config.chart.events.mounted === 'function') {
+          //       _this.w.config.chart.events.mounted(_this, _this.w);
+          //     }
 
-              _this.events.fireEvent('mounted', [_this, _this.w]);
+          //     _this.events.fireEvent('mounted', [_this, _this.w]);
 
-              resolve(graphData);
-            }).catch(function (e) {
-              reject(e); // handle error in case no data or element not found
-            });
-          } else {
-            reject(new Error('Element not found'));
-          }
+          //     resolve(graphData);
+          //   }).catch(function (e) {
+          //     reject(e); // handle error in case no data or element not found
+          //   });
+          // } else {
+          //   reject(new Error('Element not found'));
+          // }
         });
       }
     }, {

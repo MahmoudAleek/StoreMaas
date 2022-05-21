@@ -1,11 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
+// ############# ALL ADMIN CONTROLLERS ############# //
 use App\Http\Controllers\AdminControllers\AdminController;
 use App\Http\Controllers\AdminControllers\AdminManagementController;
 use App\Http\Controllers\AdminControllers\AdminProfileController;
-use App\Http\Controllers\Customers\CustomerController;
+use App\Http\Controllers\AdminControllers\AdminBrandController;
 
-use Illuminate\Support\Facades\Route;
+// ############# ALL CUSTOMERS CONTROLLERS ############# //
+use App\Http\Controllers\CustomersControllers\CustomerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +27,6 @@ Route::get('/', function () {
     return view('customer.index');
 });
 
-Route::group(['prefix'=> '/admin', 'middleware'=>['admin:admin']], function(){
-	Route::get('/login', [AdminController::class, 'loginForm']);
-	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
-
-
-});
 
 
 Route::middleware([
@@ -49,7 +48,17 @@ Route::middleware([
 
 
 
-// Admin All Routes //
+// ############################ Admin All Routes ############################ //
+
+Route::group(['prefix'=> '/admin', 'middleware'=>['admin:admin']], function(){
+	Route::get('/login', [AdminController::class, 'loginForm']);
+	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
+
+
+});
+
+
+
 Route::get('/admin/logout',[AdminController::class,  'destroy'])->name('admin.logout');
 
 Route::get('/admin/profile',[AdminProfileController::class ,'AdminProfile'])->name('admin.profile');
@@ -59,6 +68,17 @@ Route::post('/admin/profile/store',[AdminProfileController::class , 'AdminProfil
 Route::get('/admin/profile/change-password' , [AdminProfileController::class , 'AdminChangePassword'])->name('admin.profile.changepassword');
 Route::post('/admin/profile/update-password' , [AdminProfileController::class , 'AdminUpdatePassword'])->name('admin.profile.updatepassword');
 
+Route::prefix('/admin/brand')->group(function () {
+    Route::get('/view',[AdminBrandController::class,'brandsView'])->name('all.brands');
+    Route::post('/store',[AdminBrandController::class,'store'])->name('brand.store');
+
+
+    Route::get('/edit/{id}',[AdminBrandController::class,'brandEditPage'])->name('brand.editpage');
+    Route::post('/update',[AdminBrandController::class,'Update'])->name('brand.update');
+
+    Route::get('/delete/{id}',[AdminBrandController::class,'Delete'])->name('brand.delete');
+
+});
 
 
 
