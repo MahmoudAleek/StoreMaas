@@ -17,14 +17,16 @@ class AdminProfileController extends Controller
     // }
     
     public function AdminProfile(){
-        return view('admin.profile.profile_view',);
+        $admin = Auth::guard('admin')->user();
+
+        return view('admin.profile.profilesettings',compact('admin'));
     }
 
-    public function AdminProfileEdit(){
+    // public function AdminProfileEdit(){
 
-        $editData = Auth::guard('admin')->user();
-        return view('admin.profile.profile_edit',compact('editData'));
-    }
+    //     $editData = Auth::guard('admin')->user();
+    //     return view('admin.profile.profile_edit',compact('editData'));
+    // }
 
     public function AdminProfileStore(Request $request){
         
@@ -51,9 +53,9 @@ class AdminProfileController extends Controller
         return redirect()->route('admin.profile')->with($notification);
     }
 
-    public function AdminChangePassword(){
-        return view('admin.profile.changepassword');
-    }
+    // public function AdminChangePassword(){
+    //     return view('admin.profile.changepassword');
+    // }
 
     public function AdminUpdatePassword(Request $request){
         // $validateData = $request->validate([

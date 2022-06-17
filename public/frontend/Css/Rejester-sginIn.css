@@ -1,0 +1,209 @@
+.ContainerLogin{
+    padding: 0 60px;
+    margin: 60px auto;
+}
+.container .image{
+    width: 100%;
+}
+.container .welcome{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    font-family: ui-sans-serif;
+    text-align: left;
+}
+.container h1{
+    font-size: 28px;
+    color: #333;
+}
+.container h2{
+    font-size: 24px;
+    color: #333;
+}
+.container p{
+    font-size: 22px;
+    color: #333;
+}
+
+.RejesterLogin{
+    padding: 50px 80px 60px;
+    width: 60%;
+    margin: 10px auto;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 10px;
+    background-color: #fff;
+}
+.Rejester{
+    padding: 50px 30px 60px;
+    width: 60%;
+    margin: 20px auto;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+h1.login-title{
+    color: #0187CB;
+    text-align: center;
+    margin: 20px 0;
+    letter-spacing: 1px;
+    font-family: ui-sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+}
+.form-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-header .logo{
+    display: flex;
+    align-items: center;
+}
+.form-header .logo img{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;   
+}
+.form-header .btn-login{
+    color: #fff;
+    background: #0187CB;    
+    border : 1px solid #0187CB;
+    min-width: 100px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: ui-sans-serif;
+    transition: 1s;
+}
+.form-header .btn-login:hover{
+    box-shadow:0 10px 20px rgba(0,0,0,0.10);
+    transform: translateY(-3px);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.form-header .btn-Rejester{
+    color: #222;
+    /* background: #dedede; */
+    border: 1px solid #ccc;
+    min-width: 100px;
+    padding: 4px 8px;
+    font-family: ui-sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s;
+}
+.form-header .btn-Rejester:hover{
+    color: #fff;
+    background: #0187CB;
+    box-shadow:0 10px 20px rgba(0,0,0,0.10);
+    transform: translateY(-3px);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.Submit{
+    position: relative;
+    color: #fff;
+    margin: 10px 0;
+    border: 1px solid #0187CB;
+    width: 160px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: ui-sans-serif;
+    transition: 0.4s;
+    z-index: 2;
+    overflow: hidden;
+}
+.Submit:hover{
+    border: 1px solid #0187CB;
+    color: #333;
+}
+.Submit:after{
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0187CB;
+    transition: 0.4s;
+    z-index: -1;
+}
+.Submit:hover:after{
+    width: 0;
+}
+.Submit::before{
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: #0187CB;
+    transition: 0.4s;
+    z-index: -1;
+}
+.Submit:hover:before{
+    width: 0;
+}
+.Rejester p{
+    font-size: 18px;
+
+}
+.RejesterLogin .remmber{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+.RejesterLogin .remmber > div{
+    display: flex;
+    align-items: center;
+    flex: 2;
+}
+.RejesterLogin .remmber > a{
+    flex: 1;
+}
+.RejesterLogin .remmber label{
+    display: inline;
+    margin: 0;
+}
+.RejesterLogin .remmber input{
+    display: inline;
+    width: fit-content;
+    margin-left: 10px;
+}
+.RejesterLogin .remmber a{
+    text-decoration: none;
+}
+.RejesterLogin .remmber p{
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    text-align: right;
+    margin: 0;
+}
+label{
+    display: inline-block;
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: ui-sans-serif;
+    color : #0187CB;
+}
+input{
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #333;
+}

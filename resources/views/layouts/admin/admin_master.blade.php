@@ -2,265 +2,83 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{{ asset('admin/images/favicon.ico') }}">
-
-    <title>Sunny Admin - Dashboard</title>
-
-    <!-- Vendors Style-->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/vendors_css.css') }}">
-
-    <!-- Style-->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/skin_color.css') }}">
-
-
-    {{-- Toastr --}}
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brands</title>
+    <link rel="stylesheet" href="{{ asset('frontend/Css/Styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/Css/dashbord.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
 </head>
 
-<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+<body>
 
-    <div class="wrapper">
-
-        {{-- Header Start --}}
-
-        @include('layouts.admin.body.header')
-
-        {{-- Header End --}}
+    <!--Main Navigation-->
+    @include('layouts.admin.body.header')
 
 
+    <main style="margin-top: 58px">
+        @yield('admin')
+    </main>
+    <!--Main layout-->
 
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <!-- sidebar-->
-            <section class="sidebar">
-
-                <div class="user-profile">
-                    <div class="ulogo">
-                        <a href="index.html">
-                            <!-- logo for regular state and mobile devices -->
-                            <div class="d-flex align-items-center justify-content-center">
-                                <img width="40PX" height="30PX" src="{{ asset('upload/MASS.png') }}" alt="">
-                                <h3><b>MAAS</b> </h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- sidebar menu-->
-                <ul class="sidebar-menu" data-widget="tree">
-
-                    <li>
-                        <a href="index.html">
-                            <i data-feather="pie-chart"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i data-feather="message-circle"></i>
-                            <span>Brand</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{ route('all.brands') }}"><i class="ti-more"></i>View Brands</a></li>
-                            <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i data-feather="mail"></i> <span>Mailbox</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Inbox</a></li>
-                            <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
-                            <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i data-feather="file"></i>
-                            <span>Pages</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="profile.html"><i class="ti-more"></i>Profile</a></li>
-                            <li><a href="invoice.html"><i class="ti-more"></i>Invoice</a></li>
-                            <li><a href="gallery.html"><i class="ti-more"></i>Gallery</a></li>
-                            <li><a href="faq.html"><i class="ti-more"></i>FAQs</a></li>
-                            <li><a href="timeline.html"><i class="ti-more"></i>Timeline</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="header nav-small-cap">User Interface</li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i data-feather="grid"></i>
-                            <span>Components</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-                            <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
-                            <li><a href="components_buttons.html"><i class="ti-more"></i>Buttons</a></li>
-                            <li><a href="components_sliders.html"><i class="ti-more"></i>Sliders</a></li>
-                            <li><a href="components_dropdown.html"><i class="ti-more"></i>Dropdown</a></li>
-                            <li><a href="components_modals.html"><i class="ti-more"></i>Modal</a></li>
-                            <li><a href="components_nestable.html"><i class="ti-more"></i>Nestable</a></li>
-                            <li><a href="components_progress_bars.html"><i class="ti-more"></i>Progress Bars</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i data-feather="credit-card"></i>
-                            <span>Cards</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="card_advanced.html"><i class="ti-more"></i>Advanced Cards</a></li>
-                            <li><a href="card_basic.html"><i class="ti-more"></i>Basic Cards</a></li>
-                            <li><a href="card_color.html"><i class="ti-more"></i>Cards Color</a></li>
-                        </ul>
-                    </li>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('frontend/javascript/Javascript.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
 
 
-                </ul>
-            </section>
-
-            <div class="sidebar-footer">
-                <!-- item-->
-                <a href="javascript:void(0)" class="link" data-toggle="tooltip" title=""
-                    data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
-                <!-- item-->
-                <a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title=""
-                    data-original-title="Email"><i class="ti-email"></i></a>
-                <!-- item-->
-                <a href="javascript:void(0)" class="link" data-toggle="tooltip" title=""
-                    data-original-title="Logout"><i class="ti-lock"></i></a>
-            </div>
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            @yield('admin')
-        </div>
-
-        <!-- /.content-wrapper -->
-
-
-        {{-- Footer start --}}
-        @include('layouts.admin.body.footer')
-        {{-- Footer End --}}
-
-
-        <!-- Control Sidebar -->
-        @include('layouts.admin.body.left-side')
-        <!-- /.control-sidebar -->
-
-        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
-
-    </div>
-    <!-- ./wrapper -->
-
-
-    <!-- Vendor JS -->
-    <script src="{{ asset('admin/assets/js/vendors.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/icons/feather-icons/feather.min.js') }}"></script>
-    {{-- <script src="{{ asset('admin/assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script> --}}
-    <script src="{{ asset('admin/assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
-    {{-- <script src="{{ asset('admin/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script> --}}
-    <script src="{{ asset('admin/assets/vendor_components/datatable/datatables.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/pages/data-table.js') }}"></script>
-    <script src="../assets/vendor_components/datatable/datatables.min.js"></script>
-    <script src="js/pages/data-table.js"></script>
-
-
-    <!-- Sunny Admin App -->
-    <script src="{{ asset('admin/assets/js/template.js') }}"></script>
-    {{-- <script src="{{ asset('admin/assets/js/pages/dashboard.js') }}"></script> --}}
-
-
-    {{-- Toastr --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-        @if (Session::has('message'))
-            var type = "{{ Session::get('alert-type', 'info') }}";
-            switch (type) {
-                case 'success':
-                    toastr.success("{{ Session::get('message') }}");
-                    break;
-                case 'info':
-                    toastr.info("{{ Session::get('message') }}");
-                    break;
-                case 'warning':
-                    toastr.warning("{{ Session::get('message') }}");
-                    break;
-                case 'error':
-                    toastr.error("{{ Session::get('message') }}");
-                    break;
-            }
-        @endif
+        function test() {
+            //alert(this.val());
+            let subcatId = $(this).data('subcatid');
+            alert('test function ' + subcatId);
+        }
+        $(document).ready(function() {
+
+
+            // $('#EditSubCat_btn').click(function() {
+            //     alert('lashlaksf');
+
+            //     let subcatId = this.attr("data-subcat-id");
+            //     alert(subcatId);
+            // });
+
+
+
+            $('select[name="category_id"]').on('change', function() {
+                const category_id = $(this).val();
+                if (category_id) {
+                    //alert("test" + category_id);
+                    $.ajax({
+                        url: "{{ url('category/subcategory/ajax') }}/" + category_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            let d = $('select[name="subcategory_id"]').empty();
+
+                            $.each(data, function(key, value) {
+                                $('select[name="subcategory_id"]').append(
+                                    '<option value="' + value.id + '">' + value
+                                    .name + '</option');
+                            });
+                        }
+                    });
+                    //alert("test asd " + category_id);
+
+                } else {
+                    alert('something went wrong');
+                }
+            });
+        });
     </script>
 
-
-
-    {{-- Sweet Alert Settings --}}
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script type="text/javascript">
-        $(function() {
-            $(document).on('Click', '#delete', function(e) {
-                e.preventDefault();
-
-                var link = $(this).attr("href");
-
-                swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then(function(result) {
-                    if (result.isConfirmed) {
-                        window.location.href = link
-                        swal(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
-                    }
-
-                })
-            })
-        })
-    </script>
 
 </body>
 

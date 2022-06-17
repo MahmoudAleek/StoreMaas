@@ -1,141 +1,178 @@
-<header class="main-header">
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top pl-30">
-        <!-- Sidebar toggle button-->
-        <div>
-            <ul class="nav">
-                <li class="btn-group nav-item">
-                    <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" data-toggle="push-menu"
-                        role="button">
-                        <i class="nav-link-icon mdi mdi-menu"></i>
-                    </a>
-                </li>
-                <li class="btn-group nav-item">
-                    <a href="#" data-provide="fullscreen" class="waves-effect waves-light nav-link rounded svg-bt-icon"
-                        title="Full Screen">
-                        <i class="nav-link-icon mdi mdi-crop-free"></i>
-                    </a>
-                </li>
-                <li class="btn-group nav-item d-none d-xl-inline-block">
-                    <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
-                        <i class="ti-check-box"></i>
-                    </a>
-                </li>
-                <li class="btn-group nav-item d-none d-xl-inline-block">
-                    <a href="calendar.html" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
-                        <i class="ti-calendar"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+{{-- <header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>dashboard</span>
+                </a>
 
-        <div class="navbar-custom-menu r-side">
-            <ul class="nav navbar-nav">
-                <!-- full Screen -->
-                <li class="search-bar">
-                    <div class="lookup lookup-circle lookup-right">
-                        <input type="text" name="s">
-                    </div>
-                </li>
-                <!-- Notifications -->
-                <li class="dropdown notifications-menu">
-                    <a href="#" class="waves-effect waves-light rounded dropdown-toggle" data-toggle="dropdown"
-                        title="Notifications">
-                        <i class="ti-bell"></i>
-                    </a>
-                    <ul class="dropdown-menu animated bounceIn">
+                <a href="{{ route('add.product') }}" class="list-group-item list-group-item-action py-2 ripple ">
+                    <i class="fas fa-product-hunt fa-fw me-3"></i><span>Add Products</span>
+                </a>
 
-                        <li class="header">
-                            <div class="p-20">
-                                <div class="flexbox">
-                                    <div>
-                                        <h4 class="mb-0 mt-0">Notifications</h4>
-                                    </div>
-                                    <div>
-                                        <a href="#" class="text-danger">Clear All</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                <a href="./manageProduct.html" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-edit fa-fw me-3"></i><span>Prducts</span></a>
 
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu sm-scrol">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users text-info"></i> Curabitur id eros quis nunc suscipit
-                                        blandit.
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning text-warning"></i> Duis malesuada justo eu sapien
-                                        elementum, in semper diam posuere.
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users text-danger"></i> Donec at nisi sit amet tortor commodo
-                                        porttitor pretium a erat.
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-shopping-cart text-success"></i> In gravida mauris et nisi
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user text-danger"></i> Praesent eu lacus in libero dictum
-                                        fermentum.
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user text-primary"></i> Nunc fringilla lorem
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user text-success"></i> Nullam euismod dolor ut quam interdum,
-                                        at scelerisque ipsum imperdiet.
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer">
-                            <a href="#">View all</a>
-                        </li>
-                    </ul>
-                </li>
+                <a href="{{ route('all.brands') }}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa fa-pie-chart fa-fw me-3"></i><span>brands</span></a>
 
-                <!-- User Account-->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown"
-                        title="User">
-                        <img src="{{ asset('admin/images/avatar/1.jpg') }}" alt="">
-                    </a>
-                    <ul class="dropdown-menu animated flipInX">
-                        <li class="user-body">
-                            <a class="dropdown-item" href="{{ route('admin.profile') }}"><i
-                                    class="ti-user text-muted mr-2"></i> Profile</a>
-                            <a class="dropdown-item" href="{{ route('admin.profile.changepassword') }}"><i
-                                    class="ti-wallet text-muted mr-2"></i> Change
-                                Password</a>
-                            <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('admin.logout') }}"><i
-                                    class="ti-lock text-muted mr-2"></i> Logout</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
-                        <i class="ti-settings"></i>
-                    </a>
-                </li>
+                <a href="{{ route('all.categories') }}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa fa-pie-chart fa-fw me-3"></i><span>categories</span></a>
 
-            </ul>
+                <a href="{{ route('all.sub-categories') }}"
+                    class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa fa-pie-chart fa-fw me-3"></i><span>Sub Categories</span></a>
+            </div>
         </div>
     </nav>
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('frontend/images/maas.png') }}" height="30" alt="" loading="lazy" />
+            </a>
+            <!-- Search form -->
+            <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search...'
+                    style="min-width: 225px" />
+                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+            </form>
+
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                <!-- Notification dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Some news</a></li>
+                        <li><a class="dropdown-item" href="#">Another news</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</header> --}}
+
+
+
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>dashboard</span>
+                </a>
+
+                <a href="{{ route('add.product') }}" class="list-group-item list-group-item-action py-2 ripple ">
+                    <i class="fas fa-product-hunt fa-fw me-3"></i><span>Add Products</span>
+                </a>
+
+                <a href="./manageProduct.html" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-edit fa-fw me-3"></i><span>Prducts</span></a>
+
+                <a href="{{ route('all.brands') }}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa fa-pie-chart fa-fw me-3"></i><span>brands</span></a>
+
+                <a href="{{ route('all.categories') }}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa fa-pie-chart fa-fw me-3"></i><span>categories</span></a>
+
+                <a href="{{ route('all.sub-categories') }}"
+                    class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa fa-pie-chart fa-fw me-3"></i><span>Sub Categories</span></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('upload/MASS.png') }}" height="30" alt="" loading="lazy" />
+            </a>
+            <!-- Search form -->
+            <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search...'
+                    style="min-width: 225px" />
+                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+            </form>
+
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
+                            height="22" alt="Avatar" loading="lazy" />
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('admin.profile') }}">Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                        <strong class="d-none d-sm-block ms-1">Obada Kahlous</strong>
+                    </a>
+                </li>
+
+                <!-- Avatar -->
+
+
+                <!-- Notification dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Some news</a></li>
+                        <li><a class="dropdown-item" href="#">Another news</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
 </header>
